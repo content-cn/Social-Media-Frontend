@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect } from 'react';
 import axios from 'axios';
+import axiosInstance from '../Config/axiosInstance';
 
 const PostsContext = createContext();
 
@@ -16,7 +17,7 @@ const PostsProvider = ({ children }) => {
 
     const fetchPosts = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/posts', {
+        const response = await axiosInstance.get('posts', {
           headers: {
             Authorization: `Bearer ${token}`
           }

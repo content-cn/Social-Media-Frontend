@@ -9,7 +9,7 @@ const FeedList = () => {
 
     const handleLike = async (postId) => {
         try {
-            const response = await fetch('http://localhost:5000/api/likes', {
+            const response = await fetch('https://social-media-backend-umhi.onrender.com/api/likes', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -43,7 +43,7 @@ const FeedList = () => {
 
     const handleUnlike = async (postId) => {
         try {
-            const response = await fetch('http://localhost:5000/api/likes', {
+            const response = await fetch('https://social-media-backend-umhi.onrender.com/api/likes', {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',

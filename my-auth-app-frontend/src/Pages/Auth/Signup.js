@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
+import axiosInstance from '../../Config/axiosInstance';
 
 const Signup = () => {
   const [email, setEmail] = useState('');
@@ -9,7 +10,7 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/signup', { email, password });
+      const response = await axiosInstance.post('auth/signup', { email, password });
       console.log(response)
       if (response.status === 201) {
         toast.success('User created successfully');

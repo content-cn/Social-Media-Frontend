@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import axiosInstance from '../../Config/axiosInstance';
 
 const Signin = () => {
   const [email, setEmail] = useState('');
@@ -10,7 +11,7 @@ const Signin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', { email, password });
+      const response = await axiosInstance.post('auth/login', { email, password });
       const { token } = response.data;
       localStorage.setItem('jwtToken', token);
       toast.success('Logged in successfully');
