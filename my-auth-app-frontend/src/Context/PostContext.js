@@ -46,7 +46,7 @@ const PostsProvider = ({ children }) => {
     } else {
       fetchPosts();
     }
-  }, [token]);
+  }, [token, cacheExpiration, posts]);
 
   const addPost = (newPost) => {
     setPosts([...posts, newPost]);
